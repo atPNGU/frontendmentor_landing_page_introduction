@@ -16,7 +16,11 @@ html {
 
 // Types
 body {
-	overflow: hidden;
+	overflow: auto;
+	min-height: 100vh;
+	background-image: url(/images/bg-desktop.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
 	background-color: $violet;
 	color: white;
 	font-size: 16px;
@@ -36,61 +40,96 @@ button {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400; 
 	border: none;
+	transition: 0.1s ease-in-out;
 }
 
+
 // Classes
-.bg__image {
-	position: absolute;
-	width: 100%;
-	min-height: 100vh;
-	background-image: url(/images/bg-desktop.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	z-index: -1;
-	@media screen and (max-width: 375px) {
-		background-image: url(/images/bg-mobile.svg);
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	height: 100vh;
+}
+
+.flex-container {
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 1rem 0;
+	margin: 0 2rem;
+
+	header img {
+		padding: 1rem;
+		margin-bottom: 5rem;
+	}
+
+	.content {
+		display: flex;
+		align-items: center;
+
+		.text {
+			margin-left: 3rem;
+
+			h1 {
+				font-size: 225%;
+			}
+
+			p {
+				line-height: 1.5;
+				margin-bottom: 1rem;
+			}
+
+			button {
+				color: $violet;
+				margin: 0.5rem 0;
+				padding: 1rem 4rem;
+				border-radius: 3rem;
+				box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.384);
+				font-size: 18px;
+				&:hover {
+					cursor: pointer;
+					background-color: $soft_magenta;
+					color: white;
+				}
+			}
+			
+		}
+	}
+
+	.social-media {
+		display: flex;
+		justify-content: right;
+		padding: 2rem;
+		margin-top: 5rem;
+		-webkit-filter: invert(100%);
+		a img {
+			width: 3rem;
+			height: auto;
+			margin: 1rem;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	footer {
+		margin: 0 auto;
+		margin-top: -4rem;
 	}
 }
 
-.logo {
-	padding: 3rem;
+
+@media (max-width:1440px){
+	.content img{
+		width: 100%;
+	}
+	
 }
 
-.content {
-	display: flex;
-	padding: 3rem;
-}
-
-.illustration {
-	width: 110%;
-	height: auto;
-}
-
-.illustration img {
-	width: 100%;
-	height: auto;
-}
-
-.text {
-	padding-left: 3rem;
-}
-
-.text h1 {
-	font-size:3rem;
-}
-
-.text p {
-	font-size: 18px;
-	word-spacing: 0.1rem;
-	line-height: 150%;
-}
-
-.text button {
-	color: $violet;
-	margin: 0.5rem 0;
-	padding: 0.75rem 4rem;
-	border-radius: 3rem;
-	box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.384);
-	font-size: 18px;
+@media (max-width:768px){
+	.content{
+		flex-direction: column;
+	}
+	
 }
